@@ -79,7 +79,7 @@ class KeyStorage {
         
         if(window.location.hash.startsWith('#')) {
             let hash = window.location.hash.substring(1);
-            let dataString = atob(hash);
+            let dataString = atob(unescape(hash));
             let object = JSON.parse(dataString);
             this.setKey("list", object);
         }

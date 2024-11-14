@@ -42,7 +42,7 @@
             if(!key.startsWith('list')) {
                 return;
             }
-            data = (btoa(JSON.stringify(keyStorage.data.list)));
+            data = (btoa(escape(JSON.stringify(keyStorage.data.list))));
             window.location.hash = data;
         })
     </script>
