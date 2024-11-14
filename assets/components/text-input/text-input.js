@@ -49,7 +49,6 @@ class TextInput extends HTMLElement {
     }
     disableEdit() {
         let value = this.input.value;
-        this.placeholder.style.minWidth = this.input.offsetWidth+"px";
         this.placeholder.style.display = "inline-block";
         this.placeholder.style.whiteSpace = "pre-wrap";
         this.placeholder.innerText = this.prepareDisplayText(value);
