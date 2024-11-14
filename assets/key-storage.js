@@ -85,4 +85,5 @@ class KeyStorage {
         }
     }
 }
-window.keyStorage = new KeyStorage();
+const keyStorage = new KeyStorage();
+window.keyStorage = keyStorage;
