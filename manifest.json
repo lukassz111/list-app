@@ -1,7 +1,7 @@
 {
     "name": "Moja Lista Zadań",
     "short_name": "Lista Zadań",
-    "start_url": "/index.html",
+    "start_url": "https://lukassz111.github.io/list-app/",
     "display": "standalone",
     "background_color": "#ffffff",
     "description": "Prosta aplikacja lista zadań",
