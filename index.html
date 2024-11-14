@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/print.css">
+
+    <script src="bower_components/qrious/dist/qrious.min.js"></script>
+    <script src="assets/util.js"></script>
+    <script src="assets/key-storage.js"></script>
+    <script src="assets/self-qr.js"></script>
+    <script src="assets/self-link.js"></script>
+    <script src="assets/components/text-input/text-input.js"></script>
+    <script src="assets/components/list-input/list-input.js"></script>
+    <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+    <div class="vertical-center">
+        <div class="form">
+            <div class="list-name">
+                <text-input id="text-input" data-key="list.name">Nazwa listy np: "Lista zakupów"</text-input>
+            </div>
+            <div class="list-elements">
+                <list-input data-key="list.el"></list-input>
+            </div>
+            <div class="share">
+                <span>Link:</span>
+                <a class="self-link"></a>
+                <self-qr></self-qr>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('key-update',function( ev) {
+            /**
+             * @type string 
+             */
+            let key = ev.detail;
+            if(!key.startsWith('list')) {
+                return;
+            }
+            data = (btoa(JSON.stringify(keyStorage.data.list)));
+            window.location.hash = data;
+        })
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(
+                    registration => console.log('Service Worker zarejestrowany:', registration),
+                    err => console.log('Rejestracja Service Workera nie powiodła się:', err)
+                );
+            });
+        }
+    </script>
+</body>
+</html>

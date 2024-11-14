@@ -1,0 +1,13 @@
+input {
+    color: inherit;
+    background-color: inherit;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0;
+    border-width: 0 0 1px 0;
+    font-size: inherit;
+    outline-color: inherit;
+}
+span {
+    font-size: inherit;
+}

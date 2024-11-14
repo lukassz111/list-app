@@ -1,0 +1,21 @@
+{
+  "name": "Wizytowka",
+  "authors": [
+    "Łukasz Narloch <lukassz111@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "qrious": "^4.0.2"
+  }
+}

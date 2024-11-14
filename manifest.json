@@ -1,0 +1,16 @@
+{
+    "name": "Moja Lista Zadań",
+    "short_name": "Lista Zadań",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "description": "Prosta aplikacja lista zadań",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "assets/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}

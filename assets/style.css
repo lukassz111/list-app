@@ -1,0 +1,55 @@
+* {
+    --background-color: #232327;
+    --text-color: #86de74;
+    --boder-color: #75bfff;
+    --button-color: #2a2a2e;
+    --outline-color: #ff7de9;
+    outline-color: var(--outline-color);
+}
+html,body {
+    width: 100%;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+body {
+    margin: 0 auto;
+    border: 0;
+    padding: 0;
+}
+
+.vertical-center {
+    min-height: 100vh;
+    display: grid;
+    grid-auto-flow: row dense; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 16px 16px; 
+    grid-template-areas: 
+      "content"; 
+    justify-content: center; 
+    align-content: center; 
+    justify-items: center; 
+    align-items: center; 
+}
+.form {
+    max-width: min(100%, 500px);
+    width: fit-content;
+    margin: 0 auto;
+}
+.form > .list-name {
+    padding: 1rem;
+    margin: 0 auto;
+}
+.form > .list-name > * {
+    margin: 0 auto;
+    font-size: 2rem;
+}
+.form > .share {
+    margin-top: 1rem;
+    text-align: center;
+}
+.form > .share > self-qr {
+    width: 100px;
+    max-width: 100px;
+    display: inline-block;
+}
