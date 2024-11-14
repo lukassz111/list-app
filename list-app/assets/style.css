@@ -12,6 +12,7 @@ html,body {
     background-color: var(--background-color);
 }
 body {
+    min-width: 300px;
     margin: 0 auto;
     border: 0;
     padding: 0;
@@ -30,6 +31,7 @@ body {
     align-content: center; 
     justify-items: center; 
     align-items: center; 
+    max-width: 100%;
 }
 .form {
     max-width: min(100%, 500px);
