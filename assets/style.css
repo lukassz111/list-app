@@ -4,20 +4,31 @@
     --boder-color: #75bfff;
     --button-color: #2a2a2e;
     --outline-color: #ff7de9;
+    --button-border-color: #b97391; 
+    --link-color: #bfd7db;
     outline-color: var(--outline-color);
 }
 html,body {
     width: 100%;
-    color: var(--text-color);
-    background-color: var(--background-color);
 }
 body {
     min-width: 300px;
     margin: 0 auto;
     border: 0;
     padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
 }
-
+a[href] {
+    color: var(--link-color);
+    text-decoration-color: var(--link-color);
+    cursor: pointer;
+    word-break: break-all;
+}
+a[href]:hover {
+    color: var(--button-border-color);
+    text-decoration-color: var(--link-color);
+}
 .vertical-center {
     min-height: 100vh;
     display: grid;
@@ -34,8 +45,9 @@ body {
     max-width: 100%;
 }
 .form {
-    max-width: min(100%, 500px);
+    max-width: 100%;
     width: fit-content;
+    width: 100%;
     margin: 0 auto;
 }
 .form > .list-name {
@@ -49,9 +61,10 @@ body {
 .form > .share {
     margin-top: 1rem;
     text-align: center;
+    font-size: 1.5rem;
 }
 .form > .share > self-qr {
-    width: 100px;
-    max-width: 100px;
-    display: inline-block;
+    width: 40%;
+    margin: 0 auto;
+    display: block;
 }

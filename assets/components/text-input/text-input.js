@@ -49,15 +49,23 @@ class TextInput extends HTMLElement {
         this.hiddenTextarea.placeholder = this.input.placeholder;
         this.hiddenTextarea.value = this.input.value;
         this.hiddenTextarea.style.height = "0px";
+        this.hiddenTextarea.style.opacity = 0;
+        this.hiddenTextarea.style.position = "absolute";
         this.hiddenTextarea.style.width = this.input.clientWidth+"px";
+        this.hiddenTextarea.style.maxWidth = '100%';
+        this.hiddenTextarea.style.top = '0';
+        this.hiddenTextarea.style.bottom = '0';
+        this.hiddenTextarea.style.left = '0';
+        this.hiddenTextarea.style.right = '0';
+        
 
-        let currentHeight = this.hiddenTextarea.scrollHeight;
-        let minHeight = util.getNumberFromCssValue(window.getComputedStyle(this.input).fontSize); 
-        if(currentHeight < minHeight) {
-            currentHeight = minHeight;
-        }
         let that = this;
         setTimeout(function() {
+            let currentHeight = that.hiddenTextarea.scrollHeight;
+            let minHeight = util.getNumberFromCssValue(window.getComputedStyle(that.input).fontSize); 
+            if(currentHeight < minHeight) {
+                currentHeight = minHeight;
+            }
             that.input.style.height = currentHeight + "px";
             
             // that.input.style.height =  + "px";
@@ -112,6 +120,7 @@ class TextInput extends HTMLElement {
                 // this.placeholder.innerText = this.prepareDisplayText(v);
             }
             this.disableEdit();
+            this.updateHeightOfTextArea();
         });
     }
 }

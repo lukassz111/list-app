@@ -9,6 +9,7 @@ class ListInput extends HTMLElement {
         this.trEdit = document.createElement('tr');
         this.table.appendChild(this.trEdit);
         this.trEditTd0 = document.createElement('td');
+        
         this.trEditTd1 = document.createElement('td');
         this.trEditTd2 = document.createElement('td');
         this.trEdit.appendChild(this.trEditTd0);
@@ -16,7 +17,7 @@ class ListInput extends HTMLElement {
         this.trEdit.appendChild(this.trEditTd2);
         this.addTrBtn = document.createElement("button");
         this.trEditTd2.appendChild(this.addTrBtn);
-        this.addTrBtn.textContent = "Dodaj";
+        this.addTrBtn.textContent = "Dodaj element listy";
         // this.table.setAttribute('border','1');
 
         this.editTrList = [];
@@ -78,7 +79,7 @@ class ListInput extends HTMLElement {
                 }))
             })
             let delBtn = document.createElement('button');
-            delBtn.textContent = "X";
+            delBtn.textContent = "Usuń";
             td1.appendChild(delBtn);
             delBtn.addEventListener('click',function() {
                 that.values = that.values.slice(0,index).concat(that.values.slice(index+1));

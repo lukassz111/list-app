@@ -1,7 +1,7 @@
 (function() {
     window.addEventListener('load',function(){
         let url = window.location.toString();
-        let text = window.location.hostname;
+        let text = window.location.toString();
         let skip = false;
         // if(url.startsWith('file://')) {
         //     skip = true;

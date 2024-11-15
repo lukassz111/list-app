@@ -1,4 +1,8 @@
-
+:host {
+    max-width: 100%;
+    width: 100%;
+    min-width: min-content;
+}
 table,
 table tr,
 table td {
@@ -11,6 +15,9 @@ table td {
 }
 table {
     border-width: 1px;
+    max-width: 100%;
+    width: 100%;
+    min-width: min-content;
 }
 table tr {
     border-width: 1px;
@@ -19,4 +26,18 @@ table td {
     border-width: 1px;
     padding: 1rem;
     font-size: 1.5rem;
+}
+button {
+    border-style: solid;
+    border-color: var(--button-border-color);
+    border-radius: 0.56rem;
+    background-color: transparent;
+    color: inherit;
+    font-size: 1.5rem;
+}
+button:hover,
+button:focus-within,
+button:focus-visible,
+button:focus {
+    background-color: var(--button-border-color);;
 }
