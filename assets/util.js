@@ -22,5 +22,21 @@ const util = {
         let pathParts = this.getPathToFileByError(error).split('/');
         pathParts = pathParts.slice(0, pathParts.length - 1);
         return pathParts.join('/');
+    },
+
+    /**
+     * 
+     * @param { string } value 
+     * @returns number|null
+     */
+    getNumberFromCssValue( value ) {
+        if(value == undefined || value == null || value == "") {
+            return null;
+        }
+        let matches = value.match(/(?:\d{1,})/);
+        if(matches.length > 0) {
+            return matches[0];
+        }
+        return null;
     }
 }

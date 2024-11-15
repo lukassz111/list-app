@@ -1,13 +1,40 @@
-input {
+:host {
+    font-size: inherit;
+    font-family: inherit;
+    border-color: inherit;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+}
+input,textarea,span {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+}
+textarea {
     color: inherit;
     background-color: inherit;
     border-style: solid;
     border-color: inherit;
     border-radius: 0;
     border-width: 0 0 1px 0;
-    font-size: inherit;
+    
+    font-size: 1em;
+    font-family: inherit;
     outline-color: inherit;
+    padding: 0;
+    resize: none;
+    resize: vertical;
 }
 span {
-    font-size: inherit;
+    font-size: 1em;
+    font-family: inherit;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0;
+    border-width: 0 0 1px 0;
+    padding: 0;
+    word
 }

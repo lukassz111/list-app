@@ -5,8 +5,8 @@ class TextInput extends HTMLElement {
         this.key = "";
         // Tworzenie Shadow DOM
         this.shadow = this.attachShadow({ mode: 'open' });
-        this.placeholder = document.createElement('span');
-        this.input = document.createElement('input');
+        // this.placeholder = document.createElement('span');
+        this.input = document.createElement('textarea');
 
         // Tworzymy style w Shadow DOM
         // <link rel="stylesheet" href="styles.css"></link>
@@ -20,7 +20,7 @@ class TextInput extends HTMLElement {
         // Dodanie stylów i przycisku do Shadow DOM
         this.shadow.appendChild(this.styleElement);
         this.shadow.appendChild(style);
-        this.shadow.appendChild(this.placeholder);
+        // this.shadow.appendChild(this.placeholder);
         this.shadow.appendChild(this.input);
         let that = this;
         this.addEventListener('mouseenter',function(ev) {
@@ -35,6 +35,33 @@ class TextInput extends HTMLElement {
         this.addEventListener('focusout',function(ev) {
             that.disableEdit();
         })
+
+        this.input.style.height = '1ch';
+        this.hiddenTextarea = document.createElement('textarea');
+        this.input.parentNode.insertBefore(this.hiddenTextarea,this.input);
+        this.addEventListener('input',function(ev) {
+            that.updateHeightOfTextArea();
+        })
+        this.updateHeightOfTextArea();
+    }
+
+    updateHeightOfTextArea() {
+        this.hiddenTextarea.placeholder = this.input.placeholder;
+        this.hiddenTextarea.value = this.input.value;
+        this.hiddenTextarea.style.height = "0px";
+        this.hiddenTextarea.style.width = this.input.clientWidth+"px";
+
+        let currentHeight = this.hiddenTextarea.scrollHeight;
+        let minHeight = util.getNumberFromCssValue(window.getComputedStyle(this.input).fontSize); 
+        if(currentHeight < minHeight) {
+            currentHeight = minHeight;
+        }
+        let that = this;
+        setTimeout(function() {
+            that.input.style.height = currentHeight + "px";
+            
+            // that.input.style.height =  + "px";
+        })
     }
     prepareDisplayText(text) {
         if(text.trim().length <= 0) {
@@ -43,17 +70,16 @@ class TextInput extends HTMLElement {
         return text;
     }
     enableEdit() {
-        this.placeholder.style.display = 'none';
-        this.input.style.display = '';
+        // this.placeholder.style.display = 'none';
+        // this.input.style.display = 'block';
         this.input.focus();
     }
     disableEdit() {
         let value = this.input.value;
-        this.placeholder.style.display = "inline-block";
-        this.placeholder.style.whiteSpace = "pre-wrap";
-        this.placeholder.innerText = this.prepareDisplayText(value);
-        // this.placeholder.style.display = '';
-        this.input.style.display = 'none';
+        // this.placeholder.style.display = "block";
+        // this.placeholder.style.whiteSpace = "pre-wrap";
+        // this.placeholder.innerText = this.prepareDisplayText(value);
+        // this.input.style.display = 'none';
         this.dispatchEvent(new CustomEvent('end-edit',{
             detail: this.input.value
         }))
@@ -74,16 +100,16 @@ class TextInput extends HTMLElement {
             //     let ref = 
             // }
             this.placeholderText = this.innerHTML;
-            this.placeholder.innerText = this.prepareDisplayText("");
+            // this.placeholder.innerText = this.prepareDisplayText("");
             if( !(value == null || value == undefined || value.trim().length <= 0) ) {
                 this.input.value = value;
-                this.placeholder.innerText = this.prepareDisplayText(value);
+                // this.placeholder.innerText = this.prepareDisplayText(value);
             }
             this.input.placeholder = this.innerHTML;
             if(this.key != "") {
                 let v = keyStorage.getKeyOrDefault(this.key,"");
                 this.input.value = v;
-                this.placeholder.innerText = this.prepareDisplayText(v);
+                // this.placeholder.innerText = this.prepareDisplayText(v);
             }
             this.disableEdit();
         });
